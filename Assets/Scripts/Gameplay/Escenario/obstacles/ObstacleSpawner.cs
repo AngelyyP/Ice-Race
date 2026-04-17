@@ -5,14 +5,12 @@ public class ObstacleSpawner : MonoBehaviour
 {
     [Header("Prefabs")]
     [SerializeField] private GameObject[] obstaclePrefabs;
-    [SerializeField] private GameObject speedBoostPrefab;
 
     [Header("Platform reference")]
     [SerializeField] private Transform[] platformPieces;
 
     [Header("Spawn settings")]
     [SerializeField] private int obstacleCount = 6;
-    [SerializeField] private int speedBoostCount = 2;
     [SerializeField] private float minSpacingZ = 4f;
     [SerializeField] private float marginX = 1f;
     [SerializeField] private float marginZ = 3f;
@@ -46,7 +44,6 @@ public class ObstacleSpawner : MonoBehaviour
             if (piece.GetComponent<Collider>() == null) continue;
 
             SpawnGroup(obstaclePrefabs, obstacleCount, piece, usedPositions);
-            SpawnGroup(new[] { speedBoostPrefab }, speedBoostCount, piece, usedPositions);
         }
     }
 
