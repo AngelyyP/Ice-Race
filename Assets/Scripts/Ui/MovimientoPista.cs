@@ -12,7 +12,7 @@ public class MovimientoPista : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       transform.Translate(-Camera.main.transform.forward * velocidad * Time.deltaTime, Space.World);
+       //transform.Translate(-Camera.main.transform.forward * velocidad * Time.deltaTime, Space.World);
         
     }
 }
