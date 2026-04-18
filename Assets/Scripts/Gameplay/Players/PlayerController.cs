@@ -1,12 +1,13 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private int playerId;
-
-    [Header("Camera")]
-    [SerializeField] private CameraFollow assignedCamera;
+    
+    // Identificador para el jugador local vs remoto
+    public bool isLocalPlayer = true;
+    public bool canMove = false; // Solo podremos movernos cuando ambos conecten
 
     [Header("Movement")]
     [SerializeField] private float forwardSpeed = 8f;
@@ -19,6 +20,10 @@ public class PlayerController : MonoBehaviour
     private float SpeedMultiplier => slowMultiplier;
 
     private Coroutine slowCoroutine;
+    
+    // Variables para interpolación del jugador remoto
+    private Vector3 targetPosition;
+    private float updateRate = 10f; // Velocidad de interpolación
 
     private void Awake()
     {
@@ -27,19 +32,37 @@ public class PlayerController : MonoBehaviour
         rb.useGravity = true;
         rb.freezeRotation = true;
         rb.interpolation = RigidbodyInterpolation.Interpolate;
+        
+        targetPosition = transform.position;
     }
 
     private void Start()
     {
-        if (assignedCamera != null)
-            assignedCamera.SetTarget(transform);
+        // Gestionar la cámara interna del prefab
+        Camera internalCam = GetComponentInChildren<Camera>();
+        if (internalCam != null)
+        {
+            internalCam.gameObject.SetActive(isLocalPlayer);
+            
+            AudioListener listener = internalCam.GetComponent<AudioListener>();
+            if (listener != null) listener.enabled = isLocalPlayer;
+        }
     }
 
     private void FixedUpdate()
     {
         if (raceFinished) return;
 
-        ApplyMovement();
+        if (isLocalPlayer && canMove)
+        {
+            ApplyMovement();
+        }
+        else
+        {
+            // Movimiento suave remoto (Interpolación de posición)
+            Vector3 newPos = Vector3.Lerp(rb.position, targetPosition, Time.fixedDeltaTime * updateRate);
+            rb.MovePosition(newPos);
+        }
     }
 
     private void ApplyMovement()
@@ -51,6 +74,7 @@ public class PlayerController : MonoBehaviour
         vel.x = h * sidewaysSpeed * SpeedMultiplier;
 
         rb.linearVelocity = vel;
+
     }
 
     public void FinishRace()
@@ -63,14 +87,9 @@ public class PlayerController : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezeAll;
     }
 
-    public void SetCamera(CameraFollow cam)
-    {
-        assignedCamera = cam;
-        assignedCamera.SetTarget(transform);
-    }
-
     public void ApplySlow(float multiplier, float duration)
     {
+        if (!isLocalPlayer) return; 
         if (slowCoroutine != null) StopCoroutine(slowCoroutine);
         slowCoroutine = StartCoroutine(SlowCoroutine(multiplier, duration));
     }
@@ -82,6 +101,15 @@ public class PlayerController : MonoBehaviour
         slowMultiplier = 1f;
     }
 
-    public void MovePlayer(Vector3 position) => transform.position = position;
+    public void MovePlayer(Vector3 position)
+    {
+        targetPosition = position;
+        
+        if (Vector3.Distance(transform.position, targetPosition) > 5f)
+        {
+            transform.position = targetPosition;
+        }
+    }
+    
     public Vector3 GetPosition() => transform.position;
 }

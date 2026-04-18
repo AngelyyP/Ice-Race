@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
@@ -22,20 +22,36 @@ public class FinishLine : MonoBehaviour
 
         if (!other.CompareTag("Player")) return;
 
-        Debug.Log("El jugador cruzó la meta");
+        Debug.Log("El jugador cruzo la meta");
 
         PlayerController pc = other.GetComponent<PlayerController>();
         if (pc != null)
         {
-            pc.FinishRace();
+            // Congelar a todos los jugadores simulando el fin de la carrera
+            PlayerController[] allPlayers = FindObjectsByType<PlayerController>(FindObjectsSortMode.None);
+            foreach (var p in allPlayers)
+            {
+                p.FinishRace();
+            }
+
+            triggered = true;
+
+            if (winCanvas != null)
+                winCanvas.SetActive(true);
+
+            if (winText != null)
+            {
+                if (pc.isLocalPlayer)
+                {
+                    winText.text = "Â¡Ganaste!";
+                    winText.color = Color.green;
+                }
+                else
+                {
+                    winText.text = "Â¡Perdiste!";
+                    winText.color = Color.red;
+                }
+            }
         }
-
-        triggered = true;
-
-        if (winCanvas != null)
-            winCanvas.SetActive(true);
-
-        if (winText != null)
-            winText.text = "¡Ganaste!";
     }
 }
