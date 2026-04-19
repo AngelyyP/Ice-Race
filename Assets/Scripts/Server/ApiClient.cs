@@ -28,7 +28,7 @@ public class ApiClient : MonoBehaviour
         }
     }
 
-    public IEnumerator GetPlayerData(string gameId, string playerId)
+    public IEnumerator GetPlayerData(string gameId, string playerId, Action onFinished = null)
     {
         string url = $"{baseUrl}/{gameId}/{playerId}";
 
@@ -58,10 +58,12 @@ public class ApiClient : MonoBehaviour
                 OnDataReceived?.Invoke( Convert.ToInt16(playerId), data);
             }
         }
+        
+        onFinished?.Invoke();
     }
 
     // POST request
-    public IEnumerator PostPlayerData(string gameId, string playerId, ServerData data)
+    public IEnumerator PostPlayerData(string gameId, string playerId, ServerData data, Action onFinished = null)
     {
         string url = $"{baseUrl}/{gameId}/{playerId}";
         string jsonData = JsonUtility.ToJson(data);
@@ -83,8 +85,10 @@ public class ApiClient : MonoBehaviour
             }
             else
             {
-                Debug.Log($"POST Success: {webRequest.downloadHandler.text}");
+                // Debug.Log($"POST Success: {webRequest.downloadHandler.text}"); // Comentado para evitar SPAM excesivo
             }
         }
+        
+        onFinished?.Invoke();
     }
 }

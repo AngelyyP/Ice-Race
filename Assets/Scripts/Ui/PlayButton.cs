@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class PlayButton : MonoBehaviour
 {
@@ -14,21 +15,48 @@ public class PlayButton : MonoBehaviour
         }
     }
 
-    public void SelectPlayer1()
-    {
-        StartGameWithID(0);
-    }
+    // Ahora ambos botones ejecutarán la misma lógica sincronizada
+    public void SelectPlayer1() { AssignDynamicAndStart(); }
+    public void SelectPlayer2() { AssignDynamicAndStart(); }
 
-    public void SelectPlayer2()
+    private void AssignDynamicAndStart()
     {
-        StartGameWithID(1);
-    }
-
-    private void StartGameWithID(int id)
-    {
-        // Guardamos la decisión en la clase estática para leerla en la otra escena sin chocar en memoria
-        PlayerSession.SelectedPlayerId = id;
+        int dynamicId = 0;
+        string path = Application.temporaryCachePath + "/multiplayer_id_sync.txt";
         
+        try 
+        {
+            if (File.Exists(path))
+            {
+                // Si el registro se modificó hace menos de 15 segundos, significa que
+                // el otro cliente acaba de adquirir el player 1, por lo que tomamos el ID acumulado.
+                var diff = System.DateTime.Now - File.GetLastWriteTime(path);
+                if (diff.TotalSeconds < 15) 
+                {
+                    string txt = File.ReadAllText(path);
+                    int.TryParse(txt, out dynamicId);
+                }
+            }
+            // Anotamos que un jugador más se ha asignado para el siguiente cliente
+            File.WriteAllText(path, (dynamicId + 1).ToString());
+        }
+        catch 
+        {
+            dynamicId = 0; // Fallback
+        }
+
+        // dynamicId % 2 garantizará que el primer click sea 0 (Player 1) y el segundo sea 1 (Player 2)
+        int finalId = dynamicId % 2; 
+
+        // Guardamos la decisión
+        PlayerSession.SelectedPlayerId = finalId;
+        
+        PlayerTransfer transfer = FindObjectOfType<PlayerTransfer>();
+        if (transfer != null)
+        {
+            transfer.SelectedPlayerId = finalId;
+        }
+
         // Cargamos la escena del juego
         SceneManager.LoadScene("Gameplay");
     }

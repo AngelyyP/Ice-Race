@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     [Header("Multiplayer Settings")]
     public int localPlayerId = 0;
     [Tooltip("Si está activo, el id local se elige mirando si el slot 0 ya existe en el servidor (evita que dos clientes usen el mismo pingüino).")]
-    [SerializeField] private bool autoAssignPlayerId = true;
+    [SerializeField] private bool autoAssignPlayerId = false;
     [SerializeField] private float pollRate = 0.1f;
 
     private List<PlayerController> players = new List<PlayerController>();
@@ -22,15 +22,33 @@ public class GameManager : MonoBehaviour
 
     private bool playersSpawned = false;
     private bool bothPlayersConnected = false;
+    private Vector3 lastRemotePosition;
+    private bool remotePositionInitialized = false;
+
+    // Para optimizar el Polling
+    private Vector3 lastSentPosition;
+    private bool isPostRequestPending = false;
+    private bool isGetRequestPending = false;
 
     public void Start()
     {
         api.OnDataReceived += OnDataReceived;
 
-        if (autoAssignPlayerId)
-            StartCoroutine(BootstrapLocalPlayerId());
+        // Forzamos que ignore la variable del Inspector si quedó activada
+        autoAssignPlayerId = false;
+
+        // Leer ID desde el GameObject que sobrevive escenas, en lugar de static variables que pueden fallar en Multiplayer Center compartido
+        PlayerTransfer transfer = FindObjectOfType<PlayerTransfer>();
+        if (transfer != null)
+        {
+            localPlayerId = transfer.SelectedPlayerId;
+        }
         else
-            StartGameAsPlayer(PlayerSession.SelectedPlayerId);
+        {
+            localPlayerId = PlayerSession.SelectedPlayerId;
+        }
+
+        StartGameAsPlayer(localPlayerId);
     }
 
     private IEnumerator BootstrapLocalPlayerId()
@@ -66,7 +84,9 @@ public class GameManager : MonoBehaviour
         {
             if (i < playerPrefabs.Count && i < spawnPoints.Count)
             {
-                GameObject playerObj = Instantiate(playerPrefabs[i], spawnPoints[i].position, spawnPoints[i].rotation);
+                // Agregamos un pequeño modificador aleatorio para forzar un cambio en la posición reportada
+                Vector3 spawnRandomPos = spawnPoints[i].position + new Vector3(Random.Range(-0.1f, 0.1f), 0, Random.Range(-0.1f, 0.1f));
+                GameObject playerObj = Instantiate(playerPrefabs[i], spawnRandomPos, spawnPoints[i].rotation);
                 PlayerController pc = playerObj.GetComponent<PlayerController>();
                 
                 if (pc != null)
@@ -82,42 +102,67 @@ public class GameManager : MonoBehaviour
     {
         // Publicar de inmediato para que el otro cliente vea el slot ocupado en el siguiente GET
         if (localPlayerId >= 0 && localPlayerId < players.Count && players[localPlayerId] != null)
+        {
+            lastSentPosition = players[localPlayerId].GetPosition();
             SendPlayerPosition(localPlayerId);
+        }
 
         while (true)
         {
-            if (localPlayerId >= 0 && localPlayerId < players.Count && players[localPlayerId] != null)
+            // Solo enviamos un POST si no hay uno atascado y el jugador se ha movido
+            if (!isPostRequestPending && localPlayerId >= 0 && localPlayerId < players.Count && players[localPlayerId] != null)
             {
-                SendPlayerPosition(localPlayerId);
+                Vector3 currentPos = players[localPlayerId].GetPosition();
+                if (Vector3.Distance(currentPos, lastSentPosition) > 0.01f)
+                {
+                    lastSentPosition = currentPos;
+                    SendPlayerPosition(localPlayerId);
+                }
             }
 
-            if (remotePlayerId >= 0 && remotePlayerId < players.Count && players[remotePlayerId] != null)
+            // Solo enviamos un GET si el anterior ya finalizó
+            if (!isGetRequestPending && remotePlayerId >= 0 && remotePlayerId < players.Count && players[remotePlayerId] != null)
             {
                 GetPlayerData(remotePlayerId);
             }
 
-            yield return new WaitForSeconds(pollRate);
+            yield return new WaitForSeconds(pollRate); // Tasa de Polling conservada, pero protegida contra embotellamientos HTTP
         }
     }
 
     public void GetPlayerData(int playerId)
     {
+        isGetRequestPending = true;
         string safeGameId = string.IsNullOrEmpty(gameId) ? "partida1" : gameId;
-        StartCoroutine(api.GetPlayerData(safeGameId, playerId.ToString()));
+        StartCoroutine(api.GetPlayerData(safeGameId, playerId.ToString(), () => {
+            isGetRequestPending = false;
+        }));
     }
 
     public void OnDataReceived(int playerId, ServerData data)
     {
         Vector3 position = new Vector3(data.posX, data.posY, data.posZ);
 
-        // Si recibimos datos del remoto por primera vez, desbloqueamos el movimiento
-        if (playersSpawned && !bothPlayersConnected && playerId == remotePlayerId)
+        // Track last known position for each player to detect actual connections
+        if (playerId == remotePlayerId)
         {
-            bothPlayersConnected = true;
-            Debug.Log("¡El otro jugador se conectó! Comienza el movimiento.");
-            foreach (var p in players)
+            if (!remotePositionInitialized)
             {
-                if (p != null) p.canMove = true;
+                lastRemotePosition = position;
+                remotePositionInitialized = true;
+            }
+            else if (!bothPlayersConnected)
+            {
+                // Un jugador se considera conectado cuando su posición cambia (evita arrancar de inmediato por datos de una partida anterior)
+                if (Vector3.Distance(position, lastRemotePosition) > 0.01f)
+                {
+                    bothPlayersConnected = true;
+                    Debug.Log("¡El otro jugador se conectó! Comienza el movimiento.");
+                    foreach (var p in players)
+                    {
+                        if (p != null) p.canMove = true;
+                    }
+                }
             }
         }
 
@@ -133,7 +178,8 @@ public class GameManager : MonoBehaviour
     public void SendPlayerPosition(int playerId)
     {
         if (players.Count <= playerId || players[playerId] == null) return;
-
+        
+        isPostRequestPending = true;
         Vector3 position = players[playerId].GetPosition();
 
         ServerData data = new ServerData
@@ -144,6 +190,8 @@ public class GameManager : MonoBehaviour
         };
         
         string safeGameId = string.IsNullOrEmpty(gameId) ? "partida1" : gameId;
-        StartCoroutine(api.PostPlayerData(safeGameId, playerId.ToString(), data));
+        StartCoroutine(api.PostPlayerData(safeGameId, playerId.ToString(), data, () => {
+            isPostRequestPending = false;
+        }));
     }
 }

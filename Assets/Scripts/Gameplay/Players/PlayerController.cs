@@ -47,6 +47,22 @@ public class PlayerController : MonoBehaviour
             AudioListener listener = internalCam.GetComponent<AudioListener>();
             if (listener != null) listener.enabled = isLocalPlayer;
         }
+
+        // Si el jugador es remoto, convertimos su RigidBody a Kinematic para evitar
+        // que el motor de físicas pelee contra nuestra interpolación de posición.
+        if (!isLocalPlayer)
+        {
+            rb.isKinematic = true;
+        }
+    }
+
+    private void Update()
+    {
+        // Para mejorar la suavidad visual, procesamos la interpolación del jugador remoto en el Update (vinculado a los FPS)
+        if (!isLocalPlayer && !raceFinished)
+        {
+            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * updateRate);
+        }
     }
 
     private void FixedUpdate()
@@ -56,12 +72,6 @@ public class PlayerController : MonoBehaviour
         if (isLocalPlayer && canMove)
         {
             ApplyMovement();
-        }
-        else
-        {
-            // Movimiento suave remoto (Interpolación de posición)
-            Vector3 newPos = Vector3.Lerp(rb.position, targetPosition, Time.fixedDeltaTime * updateRate);
-            rb.MovePosition(newPos);
         }
     }
 
