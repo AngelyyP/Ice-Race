@@ -97,4 +97,5 @@ Cada jugador selecciona su ID (`0` o `1`) en el menú de inicio antes de entrar 
 
 | Pantalla de inicio | Durante la carrera |
 |---|---|
-| ![inicio](screenshots/pantalla_inicio.png) | ![carrera](screenshots/pantalla_carrera.png) |
+| ![inicio](<img width="1600" height="904" alt="image" src="https://github.com/user-attachments/assets/b73886ac-2a80-42d3-a781-e2daea4c185b" />
+) | ![carrera](screenshots/pantalla_carrera.png) |
