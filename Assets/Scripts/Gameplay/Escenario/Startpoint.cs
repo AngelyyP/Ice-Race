@@ -13,7 +13,6 @@ public class StartPoint : MonoBehaviour
         GameObject player = Instantiate(playerPrefab, transform.position, transform.rotation);
 
         PlayerController pc = player.GetComponent<PlayerController>();
-        //if (pc != null && assignedCamera != null)
-           // pc.SetCamera(assignedCamera);
+
     }
 }

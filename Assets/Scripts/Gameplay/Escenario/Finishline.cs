@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class FinishLine : MonoBehaviour
@@ -7,6 +8,7 @@ public class FinishLine : MonoBehaviour
     [Header("Win UI")]
     [SerializeField] private GameObject winCanvas;
     [SerializeField] private TextMeshProUGUI winText;
+    [SerializeField] private Button menuButton;
 
     private bool triggered = false;
 
@@ -14,6 +16,9 @@ public class FinishLine : MonoBehaviour
     {
         if (winCanvas != null)
             winCanvas.SetActive(false);
+
+        if (menuButton != null)
+            menuButton.onClick.AddListener(GoToMenu);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,7 +32,6 @@ public class FinishLine : MonoBehaviour
         PlayerController pc = other.GetComponent<PlayerController>();
         if (pc != null)
         {
-            // Congelar a todos los jugadores simulando el fin de la carrera
             PlayerController[] allPlayers = FindObjectsByType<PlayerController>(FindObjectsSortMode.None);
             foreach (var p in allPlayers)
             {
@@ -53,5 +57,11 @@ public class FinishLine : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void GoToMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Menu");
     }
 }

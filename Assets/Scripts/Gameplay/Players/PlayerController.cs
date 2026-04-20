@@ -5,9 +5,9 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private int playerId;
     
-    // Identificador para el jugador local vs remoto
+
     public bool isLocalPlayer = true;
-    public bool canMove = false; // Solo podremos movernos cuando ambos conecten
+    public bool canMove = false; 
 
     [Header("Movement")]
     [SerializeField] private float forwardSpeed = 8f;
@@ -21,9 +21,9 @@ public class PlayerController : MonoBehaviour
 
     private Coroutine slowCoroutine;
     
-    // Variables para interpolación del jugador remoto
+
     private Vector3 targetPosition;
-    private float updateRate = 10f; // Velocidad de interpolación
+    private float updateRate = 10f; 
 
     private void Awake()
     {
@@ -38,7 +38,6 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        // Gestionar la cámara interna del prefab
         Camera internalCam = GetComponentInChildren<Camera>();
         if (internalCam != null)
         {
@@ -48,8 +47,6 @@ public class PlayerController : MonoBehaviour
             if (listener != null) listener.enabled = isLocalPlayer;
         }
 
-        // Si el jugador es remoto, convertimos su RigidBody a Kinematic para evitar
-        // que el motor de físicas pelee contra nuestra interpolación de posición.
         if (!isLocalPlayer)
         {
             rb.isKinematic = true;
@@ -58,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        // Para mejorar la suavidad visual, procesamos la interpolación del jugador remoto en el Update (vinculado a los FPS)
+
         if (!isLocalPlayer && !raceFinished)
         {
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * updateRate);

@@ -11,10 +11,6 @@ public class ApiClient : MonoBehaviour
 
     public event Action<int , ServerData> OnDataReceived;
 
-    /// <summary>
-    /// Indica si el servidor ya tiene datos para ese jugador (GET 200).
-    /// Sirve para asignar automáticamente 0 o 1 sin que ambas instancias elijan el mismo id.
-    /// </summary>
     public IEnumerator IsPlayerSlotOccupied(string gameId, string playerId, Action<bool> onComplete)
     {
         string url = $"{baseUrl}/{gameId}/{playerId}";
@@ -41,8 +37,7 @@ public class ApiClient : MonoBehaviour
             {
                 if (webRequest.responseCode == 404)
                 {
-                    // Es un 404: El otro jugador todavía no ha enviado datos al servidor.
-                    // No hacemos Debug.LogError para no saturar la consola de Unity.
+
                 }
                 else
                 {
@@ -52,8 +47,7 @@ public class ApiClient : MonoBehaviour
             }
             else
             {
-                // Para depuración puedes dejar el log o quitarlo luego si molesta:
-                // Debug.Log($"GET Success: {webRequest.downloadHandler.text}");
+
                 var data = JsonUtility.FromJson<ServerData>(webRequest.downloadHandler.text);
                 OnDataReceived?.Invoke( Convert.ToInt16(playerId), data);
             }
@@ -62,7 +56,6 @@ public class ApiClient : MonoBehaviour
         onFinished?.Invoke();
     }
 
-    // POST request
     public IEnumerator PostPlayerData(string gameId, string playerId, ServerData data, Action onFinished = null)
     {
         string url = $"{baseUrl}/{gameId}/{playerId}";
@@ -85,7 +78,7 @@ public class ApiClient : MonoBehaviour
             }
             else
             {
-                // Debug.Log($"POST Success: {webRequest.downloadHandler.text}"); // Comentado para evitar SPAM excesivo
+
             }
         }
         

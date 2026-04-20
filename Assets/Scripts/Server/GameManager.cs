@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
     public string gameId;
 
     [Header("Prefabs & Spawning")]
-    [SerializeField] private List<GameObject> playerPrefabs; // Arreglo de 2 prefabs
-    [SerializeField] private List<Transform> spawnPoints;   // Arreglo de 2 puntos de spawn
+    [SerializeField] private List<GameObject> playerPrefabs; 
+    [SerializeField] private List<Transform> spawnPoints;   
 
     [Header("Multiplayer Settings")]
     public int localPlayerId = 0;
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     private Vector3 lastRemotePosition;
     private bool remotePositionInitialized = false;
 
-    // Para optimizar el Polling
+
     private Vector3 lastSentPosition;
     private bool isPostRequestPending = false;
     private bool isGetRequestPending = false;
@@ -34,10 +34,9 @@ public class GameManager : MonoBehaviour
     {
         api.OnDataReceived += OnDataReceived;
 
-        // Forzamos que ignore la variable del Inspector si quedó activada
+
         autoAssignPlayerId = false;
 
-        // Leer ID desde el GameObject que sobrevive escenas, en lugar de static variables que pueden fallar en Multiplayer Center compartido
         PlayerTransfer transfer = FindObjectOfType<PlayerTransfer>();
         if (transfer != null)
         {
@@ -55,7 +54,6 @@ public class GameManager : MonoBehaviour
     {
         string safeGameId = string.IsNullOrEmpty(gameId) ? "partida1" : gameId;
 
-        // Pequeño desfase para reducir empates si dos clientes arrancan el mismo frame
         yield return new WaitForSeconds(Random.Range(0f, 0.08f));
 
         bool slot0Occupied = false;
@@ -84,7 +82,7 @@ public class GameManager : MonoBehaviour
         {
             if (i < playerPrefabs.Count && i < spawnPoints.Count)
             {
-                // Agregamos un pequeño modificador aleatorio para forzar un cambio en la posición reportada
+
                 Vector3 spawnRandomPos = spawnPoints[i].position + new Vector3(Random.Range(-0.1f, 0.1f), 0, Random.Range(-0.1f, 0.1f));
                 GameObject playerObj = Instantiate(playerPrefabs[i], spawnRandomPos, spawnPoints[i].rotation);
                 PlayerController pc = playerObj.GetComponent<PlayerController>();
@@ -100,7 +98,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator ServerPollRoutine()
     {
-        // Publicar de inmediato para que el otro cliente vea el slot ocupado en el siguiente GET
+
         if (localPlayerId >= 0 && localPlayerId < players.Count && players[localPlayerId] != null)
         {
             lastSentPosition = players[localPlayerId].GetPosition();
@@ -109,7 +107,7 @@ public class GameManager : MonoBehaviour
 
         while (true)
         {
-            // Solo enviamos un POST si no hay uno atascado y el jugador se ha movido
+
             if (!isPostRequestPending && localPlayerId >= 0 && localPlayerId < players.Count && players[localPlayerId] != null)
             {
                 Vector3 currentPos = players[localPlayerId].GetPosition();
@@ -120,13 +118,13 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-            // Solo enviamos un GET si el anterior ya finalizó
+
             if (!isGetRequestPending && remotePlayerId >= 0 && remotePlayerId < players.Count && players[remotePlayerId] != null)
             {
                 GetPlayerData(remotePlayerId);
             }
 
-            yield return new WaitForSeconds(pollRate); // Tasa de Polling conservada, pero protegida contra embotellamientos HTTP
+            yield return new WaitForSeconds(pollRate); 
         }
     }
 
@@ -143,7 +141,7 @@ public class GameManager : MonoBehaviour
     {
         Vector3 position = new Vector3(data.posX, data.posY, data.posZ);
 
-        // Track last known position for each player to detect actual connections
+   
         if (playerId == remotePlayerId)
         {
             if (!remotePositionInitialized)
@@ -153,7 +151,7 @@ public class GameManager : MonoBehaviour
             }
             else if (!bothPlayersConnected)
             {
-                // Un jugador se considera conectado cuando su posición cambia (evita arrancar de inmediato por datos de una partida anterior)
+                
                 if (Vector3.Distance(position, lastRemotePosition) > 0.01f)
                 {
                     bothPlayersConnected = true;
