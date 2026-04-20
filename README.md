@@ -20,7 +20,7 @@ El juego utiliza un **servidor dedicado construido en Python/Flask** cuya única
 > Asegúrate de tener Docker instalado y el contenedor corriendo en `http://127.0.0.1:5000` antes de iniciar Unity.
 
 ```bash
-** Levantar el servidor con Docker
+Levantar el servidor con Docker
 docker pull tu-usuario/penguin-race-server
 docker run -p 5000:5000 tu-usuario/penguin-race-server
 ```
