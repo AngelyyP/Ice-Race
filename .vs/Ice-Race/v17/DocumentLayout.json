@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\cosa\\Ice-Race\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|C:\\cosa\\Ice-Race\\assets\\scripts\\gameplay\\escenario\\finishline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\escenario\\finishline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|c:\\cosa\\ice-race\\assets\\scripts\\gameplay\\escenario\\obstacles\\obstaclerock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\escenario\\obstacles\\obstaclerock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,20 +15,16 @@
       "RelativeMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\escenario\\obstacles\\obstaclespawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|c:\\cosa\\ice-race\\assets\\scripts\\gameplay\\escenario\\obstacles\\obstaclespinner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|C:\\cosa\\Ice-Race\\assets\\scripts\\gameplay\\escenario\\obstacles\\obstaclespinner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\escenario\\obstacles\\obstaclespinner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|c:\\cosa\\ice-race\\assets\\scripts\\gameplay\\escenario\\obstacles\\obstaclestatic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|C:\\cosa\\Ice-Race\\assets\\scripts\\gameplay\\escenario\\obstacles\\obstaclestatic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\escenario\\obstacles\\obstaclestatic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|c:\\cosa\\ice-race\\assets\\scripts\\gameplay\\escenario\\obstacles\\slowobstacle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|C:\\cosa\\Ice-Race\\assets\\scripts\\gameplay\\escenario\\obstacles\\slowobstacle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\escenario\\obstacles\\slowobstacle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|C:\\cosa\\Ice-Race\\assets\\scripts\\gameplay\\escenario\\finishline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\escenario\\finishline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|C:\\cosa\\Ice-Race\\assets\\scripts\\gameplay\\escenario\\startpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,23 +39,23 @@
       "RelativeMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\players\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|c:\\cosa\\ice-race\\assets\\scripts\\gameplay\\playersession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|C:\\cosa\\Ice-Race\\assets\\scripts\\gameplay\\playersession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\playersession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|c:\\cosa\\ice-race\\assets\\scripts\\gameplay\\playertransfer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|C:\\cosa\\Ice-Race\\assets\\scripts\\gameplay\\playertransfer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\playertransfer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|c:\\cosa\\ice-race\\assets\\scripts\\server\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|C:\\cosa\\Ice-Race\\assets\\scripts\\server\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\server\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|c:\\cosa\\ice-race\\assets\\scripts\\server\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|C:\\cosa\\Ice-Race\\assets\\scripts\\server\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\server\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|c:\\cosa\\ice-race\\assets\\scripts\\ui\\playbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|C:\\cosa\\Ice-Race\\assets\\scripts\\ui\\playbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{15D94059-6FCC-0F86-063A-FAFE4E71B303}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\playbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -96,11 +96,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Obstaclerock.cs",
               "DocumentMoniker": "C:\\cosa\\Ice-Race\\Assets\\Scripts\\Gameplay\\Escenario\\obstacles\\Obstaclerock.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\Escenario\\obstacles\\Obstaclerock.cs",
@@ -113,7 +113,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Obstaclespinner.cs",
               "DocumentMoniker": "C:\\cosa\\Ice-Race\\Assets\\Scripts\\Gameplay\\Escenario\\obstacles\\Obstaclespinner.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\Escenario\\obstacles\\Obstaclespinner.cs",
@@ -121,12 +121,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Gameplay\\Escenario\\obstacles\\Obstaclespinner.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T01:13:15.282Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-20T01:13:15.282Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ObstacleStatic.cs",
               "DocumentMoniker": "C:\\cosa\\Ice-Race\\Assets\\Scripts\\Gameplay\\Escenario\\obstacles\\ObstacleStatic.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\Escenario\\obstacles\\ObstacleStatic.cs",
@@ -134,12 +133,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Gameplay\\Escenario\\obstacles\\ObstacleStatic.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T01:13:12.219Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-20T01:13:12.219Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "SlowObstacle.cs",
               "DocumentMoniker": "C:\\cosa\\Ice-Race\\Assets\\Scripts\\Gameplay\\Escenario\\obstacles\\SlowObstacle.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\Escenario\\obstacles\\SlowObstacle.cs",
@@ -147,8 +145,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Gameplay\\Escenario\\obstacles\\SlowObstacle.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T01:13:05.735Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-20T01:13:05.735Z"
             },
             {
               "$type": "Document",
@@ -160,8 +157,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Gameplay\\PlayerSession.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T01:11:18.291Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-20T01:11:18.291Z"
             },
             {
               "$type": "Document",
@@ -173,8 +169,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Gameplay\\PlayerTransfer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T01:11:14.703Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-20T01:11:14.703Z"
             },
             {
               "$type": "Document",
@@ -186,8 +181,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Server\\ApiClient.cs",
               "ViewState": "AgIAAE0AAAAAAAAAAAAgwFAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T01:10:35.194Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-20T01:10:35.194Z"
             },
             {
               "$type": "Document",
@@ -199,8 +193,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Server\\GameManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T01:08:56.092Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-20T01:08:56.092Z"
             },
             {
               "$type": "Document",
@@ -212,8 +205,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Ui\\PlayButton.cs",
               "ViewState": "AgIAACUAAAAAAAAAAAAkwDUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T01:03:42.375Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-20T01:03:42.375Z"
             },
             {
               "$type": "Document",
@@ -229,7 +221,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ObstacleSpawner.cs",
               "DocumentMoniker": "C:\\cosa\\Ice-Race\\Assets\\Scripts\\Gameplay\\Escenario\\obstacles\\ObstacleSpawner.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\Escenario\\obstacles\\ObstacleSpawner.cs",
@@ -237,18 +229,17 @@
               "RelativeToolTip": "Assets\\Scripts\\Gameplay\\Escenario\\obstacles\\ObstacleSpawner.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAGYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T17:30:25.949Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-17T17:30:25.949Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "Finishline.cs",
               "DocumentMoniker": "C:\\cosa\\Ice-Race\\Assets\\Scripts\\Gameplay\\Escenario\\Finishline.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\Escenario\\Finishline.cs",
               "ToolTip": "C:\\cosa\\Ice-Race\\Assets\\Scripts\\Gameplay\\Escenario\\Finishline.cs",
               "RelativeToolTip": "Assets\\Scripts\\Gameplay\\Escenario\\Finishline.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAYwEIAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAYwDIAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-17T00:40:59.111Z",
               "EditorCaption": ""
@@ -263,8 +254,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Gameplay\\Escenario\\Startpoint.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T00:40:31.988Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-17T00:40:31.988Z"
             },
             {
               "$type": "Document",
@@ -276,8 +266,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Gameplay\\Players\\Camerafollow.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T23:48:11.299Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-16T23:48:11.299Z"
             },
             {
               "$type": "Document",
@@ -349,8 +338,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Gameplay\\Players\\PlayerController.cs",
               "ViewState": "AgIAACYAAAAAAAAAAAA+wDkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T00:25:42.099Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-16T00:25:42.099Z"
             },
             {
               "$type": "Document",

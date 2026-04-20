@@ -48,12 +48,12 @@ public class FinishLine : MonoBehaviour
                 if (pc.isLocalPlayer)
                 {
                     winText.text = "¡Ganaste!";
-                    winText.color = Color.green;
+                    winText.color = new Color(0.0f, 0.3f, 0.5f);
                 }
                 else
                 {
                     winText.text = "¡Perdiste!";
-                    winText.color = Color.red;
+                    winText.color = new Color(0.0f, 0.3f, 0.5f);
                 }
             }
         }
