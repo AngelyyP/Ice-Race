@@ -47,7 +47,7 @@ La posición recibida del jugador remoto se aplica con `MovePlayer()`. El movimi
 ### 1. Abrir el proyecto en Unity
 
 ```bash
-git clone (https://github.com/AngelyyP/Ice-Race.git)
+git clone (https://github.com/AngelyyP/Ice-Race/tree/master)
 # Abre la carpeta en Unity Hub (Unity 2022.3 LTS+)
 # Assets → Scenes → Menu.unity
 ```
