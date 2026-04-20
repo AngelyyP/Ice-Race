@@ -1,11 +1,11 @@
-Ice Race
+#Ice Race
 Juego de carreras multijugador (2 jugadores) desarrollado en Unity con comunicación HTTP a servidor central Python/Flask.
 
-Descripción general del juego
+#Descripción general del juego
 Penguin Race es un juego de carreras para 2 jugadores en tiempo real. Cada jugador controla un pingüino y compite por llegar primero a la meta. El recorrido incluye obstáculos que deben esquivarse y triggers que al activarse reducen temporalmente la velocidad del pingüino. Ambos jugadores se ven mutuamente en pantalla y reaccionan a la posición del rival en tiempo real.
 
-Comunicación cliente-servidor
-El juego utiliza un servidor dedicado construido en Python/Flask cuya única responsabilidad es recibir y entregar posiciones x, y, z de cada jugador. La comunicación se realiza exclusivamente mediante peticiones HTTP desde Unity usando UnityWebRequest dentro de Coroutines para no bloquear el hilo principal.
+#Comunicación cliente-servidor
+El juego utiliza un servidor dedicado construido en Python/Flask cuya única responsabilidad es recibir y entregar posiciones x, y, z de cada jugador (https://github.com/memin2522/DedicatedServer-Api). La comunicación se realiza exclusivamente mediante peticiones HTTP desde Unity usando UnityWebRequest dentro de Coroutines para no bloquear el hilo principal.
 
 Requisito previo: Docker
 
@@ -30,7 +30,7 @@ Sincronización e interpolación
 
 La posición recibida del jugador remoto se aplica con MovePlayer(). El movimiento del jugador local solo se habilita (canMove = true) cuando el servidor detecta que el rival ha enviado al menos una posición diferente a la inicial, garantizando que ambos empiecen al mismo tiempo.
 
-Instrucciones para ejecutar el juego
+#Instrucciones para ejecutar el juego
 1. Levantar el servidor
 
 docker pull tu-usuario/penguin-race-server
@@ -44,14 +44,15 @@ git clone https://github.com/tu-usuario/penguin-race
 
 Cada jugador selecciona su ID (0 o 1) en el menú de inicio antes de entrar a la partida. Ambas instancias deben apuntar al mismo servidor. El juego espera automáticamente hasta detectar que el rival se ha conectado antes de habilitar el movimiento.
 
-Requisitos técnicos
-Unity 2022.3 LTS o superior
+#Requisitos técnicos
+La versión de Unity debe ser 6000.3.8f1
 Docker instalado y corriendo con la imagen del servidor Flask en el puerto 5000
 Ambos clientes deben alcanzar la IP del servidor (misma red local o IP pública)
 Sistema operativo: Windows 10+, macOS 12+ o Linux
 GPU con soporte para DirectX 11 / Metal / Vulkan
 Mínimo 4 GB de RAM
-Limitaciones conocidas del sistema
+
+#Limitaciones conocidas del sistema
 El polling introduce latencia inherente entre el movimiento real y el visible del rival; configurable mediante pollRate en el Inspector.
 Si el servidor no está activo al iniciar Unity, el juego queda bloqueado esperando conexión.
 Solo soporta exactamente 2 jugadores con IDs 0 y 1.
