@@ -90,7 +90,6 @@ Este sistema permite al jugador maniobrar al pingüino con precisión para esqui
 - Si el servidor no está activo al iniciar Unity, el juego queda bloqueado esperando conexión.
 - Solo soporta exactamente **2 jugadores** con IDs `0` y `1`.
 - El servidor no persiste estado entre sesiones; reiniciarlo borra la partida en curso.
-- Si ambos clientes seleccionan el mismo Player ID, el juego no funcionará correctamente.
 - Con alta latencia de red, el suavizado puede no ser suficiente para evitar saltos visibles en la posición del rival.
 
 ---
