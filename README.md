@@ -61,7 +61,15 @@ git clone (https://github.com/AngelyyP/Ice-Race.git)
 
 ### 3. Ejecutar ambos clientes
 
-Cada jugador selecciona si es "Player 1" o "Player 2" en el menú de inicio antes de entrar a la partida. Ambas instancias deben apuntar al mismo servidor. El juego espera automáticamente hasta detectar que el rival se ha conectado antes de habilitar el movimiento. Para empezar el juego debe dar click en cualquier lugar de la pantallla de juego.
+Cada jugador selecciona si es "Player 1" o "Player 2" en el menú de inicio antes de entrar a la partida. Ambas instancias deben apuntar al mismo servidor. El juego espera automáticamente hasta detectar que el rival se ha conectado antes de habilitar el movimiento. Para empezar el juego debe dar click en cualquier lugar de la pantalla.
+
+### 4. Movimientos
+El movimiento del jugador se realiza mediante el teclado, utilizando un esquema simple e intuitivo:
+
+A: Movimiento hacia la izquierda
+D: Movimiento hacia la derecha
+
+Este sistema permite al jugador maniobrar al pingüino con precisión para esquivar obstáculos y evitar zonas que reducen la velocidad durante la carrera.
 
 ---
 
