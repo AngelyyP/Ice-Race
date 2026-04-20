@@ -44,14 +44,7 @@ La posición recibida del jugador remoto se aplica con `MovePlayer()`. El movimi
 
 ## Instrucciones para ejecutar el juego
 
-### 1. Levantar el servidor
-
-```bash
-docker pull tu-usuario/penguin-race-server
-docker run -p 5000:5000 tu-usuario/penguin-race-server
-```
-
-### 2. Abrir el proyecto en Unity
+### 1. Abrir el proyecto en Unity
 
 ```bash
 git clone (https://github.com/AngelyyP/Ice-Race.git)
@@ -59,11 +52,11 @@ git clone (https://github.com/AngelyyP/Ice-Race.git)
 # Assets → Scenes → Menu.unity
 ```
 
-### 3. Ejecutar ambos clientes
+### 2. Ejecutar ambos clientes
 
 Cada jugador selecciona si es "Player 1" o "Player 2" en el menú de inicio antes de entrar a la partida. Ambas instancias deben apuntar al mismo servidor. El juego espera automáticamente hasta detectar que el rival se ha conectado antes de habilitar el movimiento. Para empezar el juego debe dar click en cualquier lugar de la pantalla.
 
-### 4. Movimientos
+### 3. Movimientos
 El movimiento del jugador se realiza mediante el teclado, utilizando un esquema simple e intuitivo:
 
 A: Movimiento hacia la izquierda
@@ -102,5 +95,11 @@ Este sistema permite al jugador maniobrar al pingüino con precisión para esqui
 | Durante la carrera | Dos jugadores |
 |---|---|
 | ![Carrera](https://github.com/user-attachments/assets/63e87f94-fa09-496b-9b12-1d95c6d4f9a9) | ![Dos jugadores](https://github.com/user-attachments/assets/9750a299-0359-422a-b5b1-3e5e8c19c21c) |
+
+## Nombres grupo
+Angel Gabriel Quintero
+David Hernandez Pacanchique
+Angely Parra Vallejo
+
 
 
