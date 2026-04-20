@@ -88,11 +88,12 @@ Cada jugador selecciona su ID (`0` o `1`) en el menú de inicio antes de entrar 
 ---
 
 ## Capturas de pantalla
-
-| Pantalla de inicio | Durante la carrera |
+| Pantalla de inicio | Menú |
 |---|---|
-| ![Inicio](<img width="1600" height="904" alt="image" src="https://github.com/user-attachments/assets/b73886ac-2a80-42d3-a781-e2daea4c185b" />)
-| ![Menú](<img width="1600" height="679" alt="image" src="https://github.com/user-attachments/assets/bf36336e-d146-4ecc-ac7d-5cef478f1647" />)
-| ![carrera](<img width="1600" height="705" alt="image" src="https://github.com/user-attachments/assets/63e87f94-fa09-496b-9b12-1d95c6d4f9a9" />)
-| ![Dos juagadores](<img width="1600" height="794" alt="image" src="https://github.com/user-attachments/assets/9750a299-0359-422a-b5b1-3e5e8c19c21c" />)
+| ![Inicio](https://github.com/user-attachments/assets/b73886ac-2a80-42d3-a781-e2daea4c185b) | ![Menú](https://github.com/user-attachments/assets/bf36336e-d146-4ecc-ac7d-5cef478f1647) |
+
+| Durante la carrera | Dos jugadores |
+|---|---|
+| ![Carrera](https://github.com/user-attachments/assets/63e87f94-fa09-496b-9b12-1d95c6d4f9a9) | ![Dos jugadores](https://github.com/user-attachments/assets/9750a299-0359-422a-b5b1-3e5e8c19c21c) |
+
 
