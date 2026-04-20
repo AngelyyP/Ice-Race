@@ -6,7 +6,7 @@
 
 ## Descripción general del juego
 
-**Penguin Race** es un juego de carreras para **2 jugadores en tiempo real**. Cada jugador controla un pingüino y compite por llegar primero a la meta. El recorrido incluye **obstáculos** que deben esquivarse y **triggers** que al activarse reducen temporalmente la velocidad del pingüino. Ambos jugadores se ven mutuamente en pantalla y reaccionan a la posición del rival en tiempo real.
+**Ice Race** es un juego de carreras para **2 jugadores en tiempo real**. Cada jugador controla un pingüino y compite por llegar primero a la meta. El recorrido incluye **obstáculos** que deben esquivarse y **triggers** que al activarse reducen temporalmente la velocidad del pingüino. Ambos jugadores se ven mutuamente en pantalla y reaccionan a la posición del rival en tiempo real.
 
 ---
 
@@ -20,7 +20,7 @@ El juego utiliza un **servidor dedicado construido en Python/Flask** cuya única
 > Asegúrate de tener Docker instalado y el contenedor corriendo en `http://127.0.0.1:5000` antes de iniciar Unity.
 
 ```bash
-# Levantar el servidor con Docker
+** Levantar el servidor con Docker
 docker pull tu-usuario/penguin-race-server
 docker run -p 5000:5000 tu-usuario/penguin-race-server
 ```
