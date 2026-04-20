@@ -61,7 +61,7 @@ git clone (https://github.com/AngelyyP/Ice-Race.git)
 
 ### 3. Ejecutar ambos clientes
 
-Cada jugador selecciona su ID (`0` o `1`) en el menú de inicio antes de entrar a la partida. Ambas instancias deben apuntar al mismo servidor. El juego espera automáticamente hasta detectar que el rival se ha conectado antes de habilitar el movimiento.
+Cada jugador selecciona si es "Player 1" o "Player 2" en el menú de inicio antes de entrar a la partida. Ambas instancias deben apuntar al mismo servidor. El juego espera automáticamente hasta detectar que el rival se ha conectado antes de habilitar el movimiento. Para empezar el juego debe dar click en cualquier lugar de la pantallla de juego.
 
 ---
 
